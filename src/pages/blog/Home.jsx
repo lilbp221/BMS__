@@ -13,7 +13,6 @@ const Home = () => {
     <Card/>
     <Card/>
     </div>
-<h1>This is home page</h1>
     </Sturcture>
     
    

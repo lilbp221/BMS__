@@ -7,6 +7,7 @@ import Home from "./pages/blog/Home";
 import Login from "./pages/auth/Login";
 import AddBlog from "./pages/blog/AddBlog";
 import Register from "./pages/auth/Register";
+import EditBlog from "./pages/blog/EditBlog";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +18,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/addblog" element={<AddBlog/>} />
+       <Route path="/blogs/add" element={<AddBlog/>} />
+       <Route path="/blogs/edit" element={<EditBlog/>} />
       </Routes>
     </BrowserRouter>
   );
