@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../globalcomponents/navbar/Navbar'
 import Sturcture from '../../globalcomponents/layout/Sturcture'
 import Card from '../../globalcomponents/cards/Card'
+import Formblog from '../../globalcomponents/form/Formblog'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
     <Card/>
     <Card/>
     <Card/>
-  
+ 
    
     </div>
 <h1>This is home page</h1>
