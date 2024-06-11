@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from '../../globalcomponents/navbar/Navbar'
+import Sturcture from '../../globalcomponents/layout/Sturcture'
 
 function AddBlog() {
   return (
-    <div>AddBlog</div>
+    <Sturcture>
+      <p>This is blog page</p>
+    </Sturcture>
   )
 }
 
