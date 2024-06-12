@@ -6,7 +6,7 @@ const Card = () => {
    
     // using <Link> tag to redirect the page
    
-   <Link to="/blog/id">
+   <Link to="/blogs/id">
         <div>
   
 

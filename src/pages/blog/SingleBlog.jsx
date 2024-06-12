@@ -25,6 +25,15 @@ const SingleBlog = () => {
                     <div className="w-1/2 px-2">
                         <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Delete</button>
                     </div>
+                    <Link to="/">
+                    <div className="px-2 flex">
+                        <div className='flex justify-end'>
+                        <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Home</button>
+
+                        </div>
+                    </div>
+                    </Link>
+                    
                 </div>
             </div>
             <div className="md:flex-1 px-4">
