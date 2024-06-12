@@ -1,8 +1,12 @@
 import React from 'react'
+import Sturcture from '../../globalcomponents/layout/Sturcture'
+import Formblog from '../../globalcomponents/form/Formblog'
 
 const EditBlog = () => {
   return (
-    <div>EditBlog</div>
+    <Sturcture>
+      <Formblog type="EDIT "/>
+    </Sturcture>
   )
 }
 

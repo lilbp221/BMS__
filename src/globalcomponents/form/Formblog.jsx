@@ -1,26 +1,9 @@
 import React from "react";
 
-const Formblog = () => {
+const Formblog = ({type}) => {
   return (
     <div>
-      {/* <!-- component --> */}
-
-      {/* w-screen: This class likely sets the width of the element to fill the entire width of the screen.
-
-h-screen: This class likely sets the height of the element to fill the entire height of the screen.
-
-flex: This class likely sets the display property of the element to flex, enabling flexbox layout.
-
-justify-center: This class likely aligns the content of the element horizontally to the center along the main axis of the flex container.
-
-items-center: This class likely aligns the content of the element vertically to the center along the cross axis of the flex container.
-
-dark:bg-gray-900: This class seems to be conditional styling based on a dark mode. It sets the background color to a dark gray (#1a202c or similar).
-
-mt-5: This class likely adds a margin of 5 units (could be pixels, ems, or rems) to the top of the element.
-
-mx-5: This class likely adds a margin of 5 units to both the left and right sides of the element. */}
-      {/* <main className="w-screen h-screen flex justify-center items-center dark:bg-gray-900 mt-5 mx-5 p-10 py-100"> */}
+     
       <main className="w-screen flex flex-wrap items-center justify-between mx-auto ">
         <div className="w-screen h-screen dark:bg-gray-800 dark:text-white">
           <form
@@ -29,7 +12,7 @@ mx-5: This class likely adds a margin of 5 units to both the left and right side
             method="post"
           >
             <h2 className="text-xl mb-4 tracking-wider font-lighter text-gray-900 dark:text-gray-200 text-center ">
-              CREATE BLOG
+             {type}BLOG
             </h2>
             <p className="text-gray-400 mb-4">
               Your email address will not be published. Required fields are
@@ -87,6 +70,27 @@ mx-5: This class likely adds a margin of 5 units to both the left and right side
           </form>
         </div>
       </main>
+
+
+
+ {/* <!-- component --> */}
+
+      {/* w-screen: This class likely sets the width of the element to fill the entire width of the screen.
+
+h-screen: This class likely sets the height of the element to fill the entire height of the screen.
+
+flex: This class likely sets the display property of the element to flex, enabling flexbox layout.
+
+justify-center: This class likely aligns the content of the element horizontally to the center along the main axis of the flex container.
+
+items-center: This class likely aligns the content of the element vertically to the center along the cross axis of the flex container.
+
+dark:bg-gray-900: This class seems to be conditional styling based on a dark mode. It sets the background color to a dark gray (#1a202c or similar).
+
+mt-5: This class likely adds a margin of 5 units (could be pixels, ems, or rems) to the top of the element.
+
+mx-5: This class likely adds a margin of 5 units to both the left and right sides of the element. */}
+      {/* <main className="w-screen h-screen flex justify-center items-center dark:bg-gray-900 mt-5 mx-5 p-10 py-100"> */}
 
       {/* <main className="w-screen flex  items-center justify-center mx-auto bg-orange-500 ">
  

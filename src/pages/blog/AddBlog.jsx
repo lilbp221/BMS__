@@ -6,7 +6,7 @@ import Formblog from '../../globalcomponents/form/Formblog'
 function AddBlog() {
   return (
     <Sturcture>
-       <Formblog/>
+       <Formblog type="ADD "/>
     </Sturcture>
   )
 }

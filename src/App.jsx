@@ -8,6 +8,7 @@ import Login from "./pages/auth/Login";
 import AddBlog from "./pages/blog/AddBlog";
 import Register from "./pages/auth/Register";
 import EditBlog from "./pages/blog/EditBlog";
+import SingleBlog from "./pages/blog/SingleBlog";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
        <Route path="/blogs/add" element={<AddBlog/>} />
        <Route path="/blogs/edit" element={<EditBlog/>} />
+       <Route path="/blogs/id" element={<SingleBlog/>} />
       </Routes>
     </BrowserRouter>
   );
