@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Formblog = ({type}) => {
   return (
@@ -59,14 +60,23 @@ const Formblog = ({type}) => {
                 />
               </div>
             </div>
+
+            <Link to="/" className="flex justify-start ">
+              <button
+                type="submit"
+                className=" py-4 px-6 mt-20 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800">
+                Home 
+              </button>
+            </Link>
             <div className="flex justify-end">
               <button
                 type="submit"
                 className="py-4 px-6 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
               >
-                Post →
+                Post 
               </button>
             </div>
+            
           </form>
         </div>
       </main>
