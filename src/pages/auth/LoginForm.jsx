@@ -127,7 +127,7 @@ const LoginForm = ({ type,onSubmit }) => {
               </div>
 
 		  {
-		  type === 'REGISTER' ? (<Link to='/login' className="text-blue-500"> Go to Login</Link>) : (<Link to="/register" className="text-blue-500">Go to register </Link>)
+		  type === 'REGISTER' ? (<Link to='/login' className="text-blue-500"> Go to Login</Link>) : (<Link to="/register" className="text-blue-500"ll>Go to register </Link>)
 		  }
             </form>
           </div>

@@ -1,7 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
 
-const Formblog = ({type}) => {
+//this is a component
+
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from 'axios'
+
+
+const Formblog = ({type,onSubmit}) => {
+
+  const[data,setData]=useState(
+    {
+      title:'',
+      subtitle:'',
+      description:'',
+      image:'',
+      category:'',
+    }
+  )
+
+  //handles the change of made of input fields and stores the input values to useState Container
+  const handleChange = (e) => {
+    
+    // const{name,value}= e.target
+
+    const name=e.target.name
+    const value=e.target.value
+
+    setData(
+      {
+        ...data,
+        [name]:name=== 'image' ? e.target.files[0]:value
+      }
+    )
+  }
+  //handles the change of made of input fields and stores the input values to useState Container
+  
+  
+
+  const handleSubmit=(e) => {
+
+    //calling the function when submit button is pressed
+    //on pressing the button it passes the form data to AddBlog page with useState container by calling onSubmit() function of AddBlog page
+
+  e.preventDefault()
+  onSubmit(data) //userdefined function of AddBlog page
+
+  }
+  
   return (
     <div>
      
@@ -9,8 +54,8 @@ const Formblog = ({type}) => {
         <div className="w-screen h-screen dark:bg-gray-800 dark:text-white">
           <form
             className=" w-full p-4 rounded shadow-md"
-            action="/submit-comment"
             method="post"
+            onSubmit={handleSubmit}
           >
             <h2 className="text-xl mb-4 tracking-wider font-lighter text-gray-900 dark:text-gray-200 text-center ">
              {type}BLOG
@@ -20,44 +65,55 @@ const Formblog = ({type}) => {
               marked *
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="mb-4 col-span-1 md:col-span-3">
-                <textarea
-                  id="comment"
-                  name="comment"
-                  className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed resize-none"
-                  placeholder="Type your Blog Post....."
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
+             
 
               <div className="mb-4">
                 <input
                   type="text"
-                  id="Title"
-                  name="Title"
+                  name="title"
                   className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed"
-                  placeholder="Name*"
+                  placeholder="Title*"
+                  onChange={handleChange} //attribute of input field calling handlCHange function
                   required
                 />
               </div>
               <div className="mb-4">
                 <input
-                  type="Sub-Title"
-                  id="Sub-Title"
-                  name="Sub-Title"
+                  type="text"
+                  name="subtitle"
                   className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed"
                   placeholder="Sub-Title*"
+                  onChange={handleChange} //attribute of input field calling handlCHange function
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  name="category"
+                  className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed"
+                  placeholder="Category*"
+                  onChange={handleChange} //attribute of input field calling handlCHange function
                   required
                 />
               </div>
               <div className="mb-4">
                 <input
                   type="file"
-                  id="Address"
-                  name="Address"
+                  name="image"
                   className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed"
+                  onChange={handleChange} //attribute of input field calling handlCHange function
                 />
+              </div>
+              <div className="mb-4 col-span-1 md:col-span-3">
+                <textarea
+                  name="description"
+                  className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed resize-none"
+                  placeholder="Type your Blog Post....."
+                  rows="5"
+                  onChange={handleChange} //attribute of input field calling handlCHange function
+                  required
+                ></textarea>
               </div>
             </div>
 
@@ -76,6 +132,7 @@ const Formblog = ({type}) => {
                 Post 
               </button>
             </div>
+            
             
           </form>
         </div>
