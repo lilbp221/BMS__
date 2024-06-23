@@ -3,28 +3,34 @@ import { Link } from "react-router-dom";
 
 const LoginForm = ({ type,onSubmit }) => {
   //follwing code stores the data from login form to the useState Container in object form
+
+  //here data is a object array whereas setData is a function
+  // const [data, setData] = useState(0) ---> for storing int data = 0 ;
+
   const [data, setData] = useState({
     email: "",
     username: "",
-    password: "",
+    password: "",    //creating a object with key-value pair using curly braces
   });
 
   //handleChange function handles any changes to the input fields
-  const handleChange = (e) => {
+  const handleChange = (e) => 
+    {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
+   // console.log(name, value);
 
-    //calling setData function sets the name and value pair to the useState container
-
-    setData({
-      ...data, //leaves remaining data same
-      [name]: value, //sets <input name="...."> to certain values
-    });
-  };
+  //calling setData function sets the name and value pair to the useState container
+                      setData({
+                      ...data, //leaves remaining data same
+                      [name]: value, //sets <input name="...."> to certain values
+                    });
+  
+      };
 
   //handles code after submit button is clicked
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => 
+    {
     e.preventDefault(); //prevents page from loading during submission also hides the input from url
     console.log("Submission triggered");
     onSubmit(data);
@@ -37,8 +43,7 @@ const LoginForm = ({ type,onSubmit }) => {
 	// 	else{
 	// 		//hit login api
 	// 	}
-
-  };
+     };
 
 
 
@@ -59,6 +64,8 @@ const LoginForm = ({ type,onSubmit }) => {
             <form onSubmit={handleSubmit}>
               <div className="divide-y divide-gray-200">
                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                 
+                 
                   {/* DYNAMIC INPUT FIELD USING PROPS */}
 
                   {type === "REGISTER" && (

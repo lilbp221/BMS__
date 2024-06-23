@@ -7,10 +7,10 @@ const Sturcture = ({children}) => {
   return (
    
    //fragment tag <>  </>
-   <>
+   <div>
     <Navbar/>
     {children}
-    </>
+    </div>
   )
 }
 

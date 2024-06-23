@@ -1,25 +1,23 @@
-import React from "react";
-import LoginForm from "./LoginForm";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../../../config";
+//this is a register clone page
 
-function Register() {
-  //useNavigate hook to navigate from one page to other in this case from register to login
+import React from "react";
+import RegisterForm from "./RegisterForm";
+import axios from "axios";
+import { baseUrl } from "../../../../config";
+import { useNavigate } from "react-router-dom";
+
+const RegisterClone = () => {
   const navigate = useNavigate();
 
   const handleRegister = async (data) => {
     try {
       console.log(data, "Inside handle register"); //hitting api for Register Page ---->    https://react30.onrender.com/api/user/register
-      //hitting api using axios package
-      const response = await axios.post(baseUrl+'/register',data  );
-        
-        
-    
+
+      const response = await axios.post(baseUrl + "/register", data);
       console.log(response);
 
       if (response.status === 201) {
-        navigate("/login");
+        navigate("/loginclone");
       } else {
         alert("Registration failed");
       }
@@ -28,13 +26,7 @@ function Register() {
     }
   };
 
-  return (
-    <>
-      {/* using LoginForm component */}
+  return <RegisterForm onsubmit={handleRegister} type="Register" />;
+};
 
-      <LoginForm type="REGISTER" onSubmit={handleRegister} />
-    </>
-  );
-}
-
-export default Register;
+export default RegisterClone;

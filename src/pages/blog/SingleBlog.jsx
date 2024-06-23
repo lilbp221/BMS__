@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SingleBlog = () => {
+const SingleBlog = ({}) => {
+    console.log()
   return (
     <sturcture>
     <div className="bg-gray-100 dark:bg-gray-800 py-8 h-screen">
@@ -30,7 +31,7 @@ const SingleBlog = () => {
                 </div>
             </div>
             <div className="md:flex-1 px-4 h-screen"> 
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Blog Title</h2>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{blog.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
                     ante justo. Integer euismod libero id mauris malesuada tincidunt.
