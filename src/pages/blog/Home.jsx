@@ -16,7 +16,7 @@ const Home = () => {
   const fetchBlogs= async() =>
     {
        const response= await axios.get(baseUrl+'/blog' )
-       console.log(response)
+      // console.log(response)
 
        if(response.status===200)
         {
@@ -36,7 +36,7 @@ const Home = () => {
 {
  blogs.length > 0 && blogs.map((blog)=>
 {
-  console.log(blog)
+ // console.log(blog)
 return(
   <Card blog={blog} />
 )

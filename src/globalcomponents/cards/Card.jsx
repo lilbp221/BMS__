@@ -4,7 +4,7 @@ import SingleBlog from '../../pages/blog/SingleBlog'
 
 const Card = ({blog}) => {
 
-  console.log(blog)
+ // console.log(blog)
   return (
    
     // using <Link> tag to redirect the page
@@ -19,7 +19,7 @@ const Card = ({blog}) => {
       
       {/* img */}
       
-          <img className="rounded-t-lg flex-auto" src="{blog.imageUrl}" alt="no  image" />
+          <img className="rounded-t-lg flex-auto" src={blog.imageUrl} alt="no  image" />
       
       <div className="p-5">
        
