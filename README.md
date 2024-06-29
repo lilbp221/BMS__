@@ -9,3 +9,5 @@ Currently, two official plugins are available:
 # React-Basics
 # React-Basics
 # BLOG-MANAGEMENT-SYSTEM-REACT-REDUXTOOLKIT-
+# BLOG-MANAGEMENT-SYSTEM-WITH-REACT-REDUX-
+# BLOG-MANAGEMENT-SYSTEM-WITH-REACT-REDUX-
