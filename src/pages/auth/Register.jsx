@@ -13,8 +13,6 @@ function Register() {
       console.log(data, "Inside handle register"); //hitting api for Register Page ---->    https://react30.onrender.com/api/user/register
       //hitting api using axios package
       const response = await axios.post(baseUrl+'/register',data  );
-        
-        
     
       console.log(response);
 

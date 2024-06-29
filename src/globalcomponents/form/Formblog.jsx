@@ -1,55 +1,69 @@
-
 //this is a component
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { baseUrl } from "../../../config";
 
-
-const Formblog = ({type,onSubmit}) => {
-
-  const[data,setData]=useState(
-    {
-      title:'',
-      subtitle:'',
-      description:'',
-      image:'',
-      category:'',
-    }
-  )
-
+const Formblog = ({ type, onSubmit ,blog}) => {
+  const [data, setData] = useState({
+    title: "",
+    subtitle: "",
+    category: "",
+    description: "",
+    imageUrl: "",
+  });
+  const {id} = useParams()
   //handles the change of made of input fields and stores the input values to useState Container
   const handleChange = (e) => {
-    
     // const{name,value}= e.target
 
-    const name=e.target.name
-    const value=e.target.value
+    const name = e.target.name;
+    const value = e.target.value;
 
-    setData(
-      {
-        ...data,
-        [name]:name=== 'image' ? e.target.files[0]:value
+    setData({
+      ...data,
+      [name]: name === "image" ? e.target.files[0] : value,
+    })
+  };
+
+  const fetchBlog = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/blog/${id}`);
+      //console.log(response);
+      if (response.status === 200) {
+        console.log("hit")
+        setData(response.data.data);
+      } else {
+        alert("Failed to fetch blog data");
       }
-    )
-  }
+    } catch (error) {
+      console.log(error)
+      // alert(error.response.data.message);
+    }
+  };
+
+
+  useEffect(() => {
+    
+
+      fetchBlog();
+    //  console.log("hit")
+    
+  }, []);
+
   //handles the change of made of input fields and stores the input values to useState Container
-  
-  
 
-  const handleSubmit=(e) => {
-
+  const handleSubmit = (e) => {
     //calling the function when submit button is pressed
     //on pressing the button it passes the form data to AddBlog page with useState container by calling onSubmit() function of AddBlog page
 
-  e.preventDefault()
-  onSubmit(data) //userdefined function of AddBlog page
+    e.preventDefault();
+    onSubmit(data); //userdefined function of AddBlog page
+  };
 
-  }
-  
   return (
     <div>
-     
       <main className="w-screen flex flex-wrap items-center justify-between mx-auto ">
         <div className="w-screen h-screen dark:bg-gray-800 dark:text-white">
           <form
@@ -58,15 +72,13 @@ const Formblog = ({type,onSubmit}) => {
             onSubmit={handleSubmit}
           >
             <h2 className="text-xl mb-4 tracking-wider font-lighter text-gray-900 dark:text-gray-200 text-center ">
-             {type}BLOG
+              {type}BLOG
             </h2>
             <p className="text-gray-400 mb-4">
               Your email address will not be published. Required fields are
               marked *
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-             
-
               <div className="mb-4">
                 <input
                   type="text"
@@ -75,6 +87,7 @@ const Formblog = ({type,onSubmit}) => {
                   placeholder="Title*"
                   onChange={handleChange} //attribute of input field calling handlCHange function
                   required
+                  value={data.title}
                 />
               </div>
               <div className="mb-4">
@@ -85,6 +98,8 @@ const Formblog = ({type,onSubmit}) => {
                   placeholder="Sub-Title*"
                   onChange={handleChange} //attribute of input field calling handlCHange function
                   required
+                  value={data.subtitle}
+
                 />
               </div>
               <div className="mb-4">
@@ -95,6 +110,8 @@ const Formblog = ({type,onSubmit}) => {
                   placeholder="Category*"
                   onChange={handleChange} //attribute of input field calling handlCHange function
                   required
+                  value={data.category}
+
                 />
               </div>
               <div className="mb-4">
@@ -103,6 +120,7 @@ const Formblog = ({type,onSubmit}) => {
                   name="image"
                   className="w-full px-3 py-2 dark:bg-gray-900 rounded-sm border dark:border-none border-gray-300 focus:outline-none border-solid focus:border-dashed"
                   onChange={handleChange} //attribute of input field calling handlCHange function
+
                 />
               </div>
               <div className="mb-4 col-span-1 md:col-span-3">
@@ -113,6 +131,8 @@ const Formblog = ({type,onSubmit}) => {
                   rows="5"
                   onChange={handleChange} //attribute of input field calling handlCHange function
                   required
+                  value={data.description}
+
                 ></textarea>
               </div>
             </div>
@@ -120,27 +140,34 @@ const Formblog = ({type,onSubmit}) => {
             <Link to="/" className="flex justify-start ">
               <button
                 type="submit"
-                className=" py-4 px-6 mt-20 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800">
-                Home 
+                className=" py-4 px-6 mt-20 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
+              >
+                Home
               </button>
             </Link>
-            <div className="flex justify-end">
+
+            {type == "EDIT" && (<div className="flex justify-end">
               <button
                 type="submit"
                 className="py-4 px-6 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
               >
-                Post 
+                Edit & Post
               </button>
-            </div>
-            
+            </div>)}
+            {type == "ADD" && (<div className="flex justify-end">
+              <button
+                type="submit"
+                className="py-4 px-6 bg-blue-950 text-white rounded-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
+              >
+                Post
+              </button>
+            </div>)}
             
           </form>
         </div>
       </main>
 
-
-
- {/* <!-- component --> */}
+      {/* <!-- component --> */}
 
       {/* w-screen: This class likely sets the width of the element to fill the entire width of the screen.
 

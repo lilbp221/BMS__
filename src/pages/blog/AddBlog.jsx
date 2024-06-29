@@ -35,7 +35,7 @@ function AddBlog() {
 
   return (
     <Sturcture>
-      <Formblog type="ADD" onSubmit={handleCreateBlog} />
+      <Formblog type="ADD" onSubmit={handleCreateBlog}  />
 
       {/* sending the handleCreateBlog function to component Formblog so that the function can be used to pass data */}
     </Sturcture>
